@@ -20,4 +20,4 @@ echo "sellerie:!!:17194:0:99999:7:::" >> /mnt/etc/shadow
 git clone https://aur.archlinux.org/pacaur.git /mnt/home/sellerie/Downloads/pacaur/
 git clone https://aur.archlinux.org/cower.git /mnt/home/sellerie/Downloads/cower
 echo "User "sellerie" created with home folder and pacaur files in Downloads folder."
-
+arch-chroot /mnt
