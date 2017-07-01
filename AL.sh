@@ -35,8 +35,10 @@ read -ep "Graphical system?(y/n)" gs
 
 			fi
 fi
-mtob=n
 read -ep "Do you want to install more than one browser?(y/N)" mtob
+if [[ $mtob != "" ]]
+then mtbo=n
+fi
 ffb=y
 bins=0
 read -ep "Install Firefox?(Y/n)" ffb
