@@ -6,11 +6,14 @@ cat /etc/pacman.conf |grep -v multilib > pacman.conf2 && mv pacman.conf2 /etc/pa
 
 read -ep "Graphical system?(y/n)" gs
 	if [[ $gs == y ]] || [[ $gs == Y ]]
+	echo "Question graphical worked"
 	then
 		read -ep "Graphics manufacturer? (i)ntel, (a)md, (n)vidia)" drv
+		echo "Question manuf worked"
 		if [[ $drv == i ]]
 		then 
 			graphics="xf86-video-intel"
+			echo "Intel worked"
 		fi
 		if [[ $drv == a ]]
 		then	
