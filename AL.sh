@@ -6,7 +6,6 @@ md=""
 
 read -ep "What username do you want to use?" newusr
 echo "Creating enviroment..."
-#chroot /mnt cat /etc/pacman.conf |grep -v multilib > pacman.conf2 && mv pacman.conf2 /etc/pacman.conf && echo '[multilib]' >> /etc/pacman.conf && echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
 
 cat /etc/pacman.conf |grep -v multilib > pacman.conf2 && mv pacman.conf2 /etc/pacman.conf && echo '[multilib]' >> /etc/pacman.conf && echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
 
@@ -41,7 +40,7 @@ read -ep "Do you want to install more than one browser?(y/N)" mtob
 if [[ $mtob != "" ]]
 then mtbo=n
 fi
-ffb=y
+
 bins=0
 read -ep "Install Firefox?(Y/n)" ffb
 	if [[ $ffb == y ]] || [[ $ffb == Y ]]
@@ -78,6 +77,7 @@ then
 		fi
 	fi
 fi
+	
 
 pacstrap /mnt base base-devel plasma dialog plasma-meta xfce4 xfce4-goodies kate git vim grub efibootmgr i3 os-prober sddm xorg-server $graphics networkmanager network-manager-applet plasma-nm kleopatra networkmanager-openvpn networkmanager-openconnect steam gparted $ff $op $md libreoffice-fresh okular hunspell-de hunspell-en kde-meta-kdeutils gnome-disk-utility pavucontrol paprefs arduino eclipse-java gwenview ristretto kolourpaint k3b xfburn vlc libvirt virtualbox virtualbox virtualbox-host-modules-arch veracrypt wine winetricks gwenview
 
