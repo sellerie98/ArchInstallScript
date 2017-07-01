@@ -1,4 +1,8 @@
 #!/bin/bash
+set -ux
+op=""
+ff=""
+md=""
 echo "Creating enviroment..."
 #chroot /mnt cat /etc/pacman.conf |grep -v multilib > pacman.conf2 && mv pacman.conf2 /etc/pacman.conf && echo '[multilib]' >> /etc/pacman.conf && echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
 
@@ -6,30 +10,31 @@ cat /etc/pacman.conf |grep -v multilib > pacman.conf2 && mv pacman.conf2 /etc/pa
 
 read -ep "Graphical system?(y/n)" gs
 	if [[ $gs == y ]] || [[ $gs == Y ]]
-	echo "Question graphical worked"
-	then
-		read -ep "Graphics manufacturer? (i)ntel, (a)md, (n)vidia)" drv
-		echo "Question manuf worked"
-		if [[ $drv == i ]]
-		then 
-			graphics="xf86-video-intel"
-			echo "Intel worked"
-		fi
-		if [[ $drv == a ]]
-		then	
-			graphics="xf86-video-ati xf86-video-amdgpu"
-		fi
-		if [[ $drv == n ]]
+		echo "Question graphical worked"
 		then
-			read -ep "Install (p)roprietary or (f)ree driver?" ng
-			if [[ $ng == p ]] || [[ $ng == P ]]
+			read -ep "Graphics manufacturer? (i)ntel, (a)md, (n)vidia)" drv
+			echo "Question manuf worked"
+			if [[ $drv == i ]]
+			then 
+				graphics="xf86-video-intel"
+				echo "Intel worked"
+			fi
+			if [[ $drv == a ]]
+			then	
+				graphics="xf86-video-ati xf86-video-amdgpu"
+			fi
+			if [[ $drv == n ]]
 			then
-			graphics=nvidia
-			else
-			graphics=xf86-video-nouveau
-		fi
+				read -ep "Install (p)roprietary or (f)ree driver?" ng
+				if [[ $ng == p ]] || [[ $ng == P ]]
+				then
+					graphics=nvidia
+				else
+				graphics=xf86-video-nouveau
+				fi
 
-	fi
+			fi
+fi
 mtob=n
 read -ep "Do you want to install more than one browser?(y/N)" mtob
 ffb=y
