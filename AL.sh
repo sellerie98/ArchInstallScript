@@ -19,7 +19,7 @@ read -ep "Graphical system?(y/n)" gs
 		if [[ $drv == n ]]
 		then
 			read -ep "Install (p)roprietary or (f)ree driver?" ng
-			if	[[ $ng == p ]] || [[ $mtob === P ]]
+			if [[ $ng == p ]] || [[ $ng == P ]]
 			then
 			graphics=nvidia
 			else
