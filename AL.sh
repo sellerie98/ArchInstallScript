@@ -3,6 +3,8 @@ set -ux
 op=""
 ff=""
 md=""
+
+read -ep "What username do you want to use?" newusr
 echo "Creating enviroment..."
 #chroot /mnt cat /etc/pacman.conf |grep -v multilib > pacman.conf2 && mv pacman.conf2 /etc/pacman.conf && echo '[multilib]' >> /etc/pacman.conf && echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
 
